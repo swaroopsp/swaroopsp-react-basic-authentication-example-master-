@@ -8,13 +8,31 @@ export const userService = {
 };
 
 function login(username, password) {
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+    let details = {
+        'username': username,
+        'password': password
     };
 
-    return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
+    let formBody = [];
+    for (let property in details) {
+        let encodedKey = encodeURIComponent(property);
+        let encodedValue = encodeURIComponent(details[property]);
+        formBody.push(encodedKey + "=" + encodedValue);
+    }
+    formBody = formBody.join("&");
+
+
+
+
+
+    const requestOptions = {
+        method: 'POST',
+		mode: 'no-cors',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'},
+        body: formBody
+    };
+
+    return fetch(`http://localhost:3000/login`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // login successful if there's a user in the response

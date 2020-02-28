@@ -10,6 +10,8 @@
     "start": "webpack-dev-server --open"
   },
   "dependencies": {
+	"bcryptjs": "^2.4.3",
+    "node-gyp": "^6.1.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.1.2"
@@ -22,8 +24,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "html-webpack-plugin": "^3.2.0",
     "path": "^0.12.7",
-    "webpack": "^4.15.0",
+    "webpack": "^4.41.6",
     "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.3"
+    "webpack-dev-server": "^3.10.3"
   }
 }
